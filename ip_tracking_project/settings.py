@@ -16,7 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ip_tracking',  # Your app
+    'ip_tracking',
 ]
 
 MIDDLEWARE = [
@@ -27,7 +27,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'ip_tracking.middleware.IPLoggingMiddleware',  # Your middleware
+    'ip_tracking.middleware.IPLoggingMiddleware',  
 ]
 
 ROOT_URLCONF = 'ip_tracking_project.urls'
@@ -74,3 +74,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RATELIMIT_CONFIG = {
+    'anonymous': '5/m',
+    'authenticated': '10/m',
+}
+
